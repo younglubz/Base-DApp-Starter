@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Base DApp Starter — Demo</title>
+  <meta name="description" content="Starter kit para dApps na Base (base.org) — Next.js, Solidity, Wagmi, Hardhat" />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue"; background:linear-gradient(180deg,#031029 0%, #071427 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
+    .wrap{max-width:980px;margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg, #1e293b, var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .row{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .small{font-size:13px;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#4f46e5);color:white}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:#cfe3ff;background:transparent}
+    pre{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;overflow:auto;font-size:13px;line-height:1.45}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;color:#e6f0ff}
+    ul{padding-left:18px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .badge{font-size:12px;padding:6px 8px;border-radius:999px;background:var(--glass);color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:880px){.row{grid-template-columns:1fr;}.card{padding:14px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">B</div>
+      <div>
+        <h1>Base DApp Starter <span class="small">— Demo & README (HTML)</span></h1>
+        <p class="lead">Starter kit open-source para dApps na Base (base.org) com Next.js, Solidity, Wagmi e Hardhat.</p>
+        <div class="meta">
+          <span class="badge">Next.js</span>
+          <span class="badge">Solidity</span>
+          <span class="badge">Hardhat</span>
+          <span class="badge">Wagmi / Viem</span>
+        </div>
+      </div>
+    </header>
+
+    <div style="height:18px"></div>
+
+    <div class="row">
+      <!-- Left: main content -->
+      <div>
+        <div class="card">
+          <h3>🔧 Como usar (local)</h3>
+          <p class="small">Passos rápidos para rodar o projeto no seu computador.</p>
+
+          <h4 style="margin:10px 0 6px">Instalar dependências</h4>
+          <pre><code>npm install
+cd frontend
+npm install</code></pre>
+
+          <h4 style="margin:10px 0 6px">Rodar frontend (dev)</h4>
+          <pre><code>cd frontend
+npm run dev
+# Acesse: http://localhost:3000</code></pre>
+
+          <h4 style="margin:10px 0 6px">Deploy (exemplo Hardhat)</h4>
+          <pre><code>npx hardhat run scripts/deploy.ts --network baseSepolia</code></pre>
+
+          <h4 style="margin:10px 0 6px">Variáveis de ambiente</h4>
+          <pre><code>PRIVATE_KEY=
+BASE_RPC_URL=
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=</code></pre>
+
+          <div style="height:8px"></div>
+          <h4 style="margin:10px 0 6px">Estrutura do projeto</h4>
+          <pre><code>base-dapp-starter/
+├─ contracts/
+│  └─ Counter.sol
+├─ scripts/
+│  └─ deploy.ts
+├─ frontend/
+│  ├─ app/
+│  ├─ components/
+│  └─ styles/
+├─ hardhat.config.ts
+└─ README.md</code></pre>
+
+          <div style="height:8px"></div>
+          <h4 style="margin:10px 0 6px">Trecho: Counter.sol</h4>
+          <pre><code>// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Counter {
+    uint256 public count;
+
+    function increment() public {
+        count += 1;
+    }
+
+    function reset() public {
+        count = 0;
+    }
+}</code></pre>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h3>📦 README (resumo)</h3>
+          <p class="small">Copie esse bloco para o README.md do seu repositório se quiser.</p>
+          <pre><code># Base DApp Starter
+
+Starter kit open-source para construir dApps na Base com Next.js, Solidity, Wagmi e Hardhat.
+
+## Rodar
+npm install
+cd frontend
+npm run dev
+
+## Deploy
+npx hardhat run scripts/deploy.ts --network baseSepolia</code></pre>
+        </div>
+
+      </div>
+
+      <!-- Right: sidebar -->
+      <aside>
+        <div class="card" style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <strong>🔗 Links</strong>
+            <div style="height:8px"></div>
+            <!-- Replace the hrefs with your real links -->
+            <a class="btn btn-primary" id="demoBtn" href="https://base-dapp-starter.vercel.app" target="_blank" rel="noopener noreferrer">Abrir Demo</a>
+            <a class="btn btn-ghost" id="repoBtn" href="https://github.com/seu-usuario/base-dapp-starter" target="_blank" rel="noopener noreferrer" style="margin-left:8px">Ver Repositório</a>
+          </div>
+
+          <div>
+            <strong>⭐ Dicas</strong>
+            <ul class="small">
+              <li>Suba o projeto no GitHub e ative o GitHub Pages (ou conecte ao Vercel).</li>
+              <li>Adicione um arquivo <code>.gitignore</code> e não suba chaves privadas.</li>
+              <li>Coloque o link da demo no topo do README (como feito aqui).</li>
+            </ul>
+          </div>
+
+          <div>
+            <strong>📌 Status</strong>
+            <div class="small">MVP: Conexão de carteira • Leitura/Gravação no contrato • Deploy</div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card small">
+          <strong>Contato / Créditos</strong>
+          <p style="margin:8px 0 0">Criado a partir do template <em>Base DApp Starter</em>.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>Para usar: salve esse arquivo como <code>index.html</code>, atualize os links e envie para o repositório no GitHub.</div>
+    </footer>
+  </div>
+
+  <script>
+    // sugestão: substituir os links de demo e repo dinamicamente
+    (function(){
+      const demo = document.getElementById('demoBtn');
+      const repo = document.getElementById('repoBtn');
+      // Se quiser, altere aqui por padrão:
+      // demo.href = 'https://seu-site.vercel.app';
+      // repo.href = 'https://github.com/seu-usuario/base-dapp-starter';
+    })();
+  </script>
+</body>
+</html>
+
